@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ItemSelectedRepro"
+             x:Class="ItemSelectedRepro.NoLeaksPage"
+             Title="No Leaks Page"
+             x:DataType="local:DataViewModel">
+    <ContentPage.Content>
+        <Grid RowDefinitions="40, *, 50">
+            <!-- Just HasUneven Rows works nicely -->
+            <ListView x:Name="HasUnevenRowsList"
+                      ItemsSource="{Binding Items}"
+                      HasUnevenRows="True"
+                      Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ListItem">
+                        <local:MyViewCell>
+                            <Label Text="{Binding Text}"/>
+                        </local:MyViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Go Back"
+                    Clicked="GoBack"
+                    Grid.Row="4"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

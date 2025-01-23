@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ItemSelectedRepro.MainPage">
+
+    <ScrollView>
+        <Grid Padding="30,0"
+              ColumnDefinitions="*,*"
+              RowDefinitions="45,45,45,50,50,*"
+              RowSpacing="10"
+              ColumnSpacing="10">
+            <Button
+                x:Name="OpenIssue1PageButton"
+                Text="Open Leaks Issue #1" 
+                Clicked="OpenIssue1Page"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="OpenIssue2PageButton"
+                Text="Open Leaks Issue #2" 
+                Clicked="OpenIssue2Page"
+                Grid.Column="1"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="OpenPageWithoutIssueButton"
+                Text="Open No Leaks Page" 
+                Clicked="OpenPageWithoutIssue"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Fill" />
+                
+            <Button
+                x:Name="GarbageCollectionButton"
+                Text="Collect Garbage" 
+                BackgroundColor="Red"
+                Clicked="CollectGarbage"
+                Grid.Row="2"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CheckWeakReferenceButton"
+                Text="Check References" 
+                Clicked="CheckWeakReferenceButton_OnClicked"
+                Grid.Row="2"
+                Grid.Column="1" 
+                HorizontalOptions="Fill" />
+            
+            <Label x:Name="MemoryUsageLabel"
+                   FontSize="Medium"
+                   Grid.Row="3"/>
+            <Label Text="Alive References:"
+                   FontSize="Medium"
+                   Grid.Row="4"/>
+            <Label x:Name="AliveReferencesLabel" 
+                   Text=""
+                   TextColor="Red"
+                   Grid.Row="5"/>
+            
+            <Label Text="Dead References:"
+                   FontSize="Medium"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+            <Label x:Name="DeadReferencesLabel" 
+                   Text=""
+                   TextColor="Green"
+                   Grid.Row="5"
+                   Grid.Column="1"/>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
