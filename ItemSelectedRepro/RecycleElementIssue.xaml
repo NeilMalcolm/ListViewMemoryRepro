@@ -6,23 +6,19 @@
              x:DataType="local:DataViewModel"
              Title="RecycleElement Issue">
     <ContentPage.Content>
-        <Grid RowDefinitions="*, 50">
+        <VerticalStackLayout>
             <!-- RecycleElement still seems to hold onto some ViewCells -->
             <ListView x:Name="RecycleElementList"
                       ItemsSource="{Binding Items}"
                       CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:ListItem">
-                        <local:MyViewCell>
+                        <ViewCell>
                             <Label Text="{Binding Text}"/>
-                        </local:MyViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <Button Text="Go Back"
-                    Clicked="GoBack"
-                    Grid.Row="1"/>
-        </Grid>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

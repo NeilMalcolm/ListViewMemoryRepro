@@ -6,24 +6,18 @@
              Title="No Leaks Page"
              x:DataType="local:DataViewModel">
     <ContentPage.Content>
-        <Grid RowDefinitions="40, *, 50">
-            <!-- Just HasUneven Rows works nicely -->
-            <ListView x:Name="HasUnevenRowsList"
-                      ItemsSource="{Binding Items}"
-                      HasUnevenRows="True"
-                      Grid.Row="1">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:ListItem">
-                        <local:MyViewCell>
-                            <Label Text="{Binding Text}"/>
-                        </local:MyViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Button Text="Go Back"
-                    Clicked="GoBack"
-                    Grid.Row="4"/>
-        </Grid>
+        <!-- Just HasUneven Rows works -->
+        <ListView x:Name="HasUnevenRowsList"
+                  ItemsSource="{Binding Items}"
+                  HasUnevenRows="True"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:ListItem">
+                    <ViewCell>
+                        <Label Text="{Binding Text}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -5,10 +5,9 @@
              xmlns:local="using:ItemSelectedRepro"
              x:Class="ItemSelectedRepro.RecycleAndHasUnevenRowsIssue"
              x:DataType="local:DataViewModel"
-             NavigationPage.HasBackButton="False"
              Title="RecycleElement and UnevenRows Issue">
     <ContentPage.Content>
-        <Grid RowDefinitions="*, 50">
+        <Grid RowDefinitions="*">
             <!-- Uneven Rows and RecycleElement causes the ListView,ViewCells and Page 
                  to be retained. -->
             <ListView x:Name="IssuePageList"
@@ -17,16 +16,12 @@
                               CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:ListItem">
-                        <local:MyViewCell>
+                        <ViewCell>
                             <Label Text="{Binding Text}"/>
-                        </local:MyViewCell>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button Grid.Row="1"
-                    Text="Go Back"
-                    Clicked="GoBack"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -8,16 +8,17 @@ namespace ItemSelectedRepro;
 public partial class DataViewModel : ObservableObject
 {
     [ObservableProperty] 
-    private ObservableCollection<ListItem> _items;
+    private ObservableCollection<ListItem> _items = new();
 
     [ObservableProperty] 
-    private ListItem _selectedItem;
+    private ListItem? _selectedItem;
     
     [RelayCommand]
     private void OnItemSelected(ListItem item)
     {
         System.Diagnostics.Debug.WriteLine($"Selected item: {item.Text}");
     }
+    
     public DataViewModel()
     {
         List<ListItem> items = [];
